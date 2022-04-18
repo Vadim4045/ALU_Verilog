@@ -1,0 +1,17 @@
+module NUMBER #(parameter BITS=8)
+					(input SET,RESET,
+					input [BITS-1:0] NUM_IN,
+					output [BITS-1:0] NUM_OUT);
+					
+reg [BITS-1:0] number;
+
+assign NUM_OUT = number;
+
+always @(negedge SET or negedge RESET)
+	begin
+
+		if(~RESET) number <= 'h0;
+		else number <= NUM_IN;
+	end					
+					
+endmodule

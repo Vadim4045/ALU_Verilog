@@ -1,0 +1,32 @@
+module CALCULATOR #(parameter BITS=16, DIGITS=6)
+						(input [9:0] SW,input [1:0]KEY,
+						output[7:0] HEX0,HEX1,HEX2,HEX3,HEX4,HEX5,				
+						output [9:0] LEDR);
+
+wire over;
+wire [1:0]com;
+wire [BITS-1:0] res, mod, to_seg;
+wire [DIGITS*6-1:0]seg_hex;						
+reg [BITS-1:0] A, B;
+reg [DIGITS-1:0][3:0] dig_store;
+	
+assign seg_hex = {HEX5,HEX4,HEX3,HEX2,HEX1,HEX0};
+
+DIGIT_REG (.RST(KEY[1]), .KEY(KEY[0]), .SW(SW[0]), .NUM(dig_store[0]));
+DIGIT_REG (.RST(KEY[1]), .KEY(KEY[0]), .SW(SW[1]), .NUM(dig_store[1]));
+DIGIT_REG (.RST(KEY[1]), .KEY(KEY[0]), .SW(SW[2]), .NUM(dig_store[2]));
+DIGIT_REG (.RST(KEY[1]), .KEY(KEY[0]), .SW(SW[3]), .NUM(dig_store[3]));
+DIGIT_REG (.RST(KEY[1]), .KEY(KEY[0]), .SW(SW[4]), .NUM(dig_store[4]));
+DIGIT_REG (.RST(KEY[1]), .KEY(KEY[0]), .SW(SW[5]), .NUM(dig_store[5]));
+	
+
+
+assign com = SW[7:6];
+
+BIN_to_BCD #(.BITS(BITS), .DIGITS(DIGITS))(.BIN_IN(to_seg), .TO_SEG(seg_hex));
+
+ALU_LL #(.BITS(BITS))(.A(A), .B(B), .Com(com), .Res(res), .DivMod(mod), .Over(over));
+
+assign to_seg = SW[9]? over? 'h0: SW[8]?res:mod :SW[8]? B:A;
+
+endmodule

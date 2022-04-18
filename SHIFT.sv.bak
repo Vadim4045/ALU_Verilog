@@ -1,0 +1,10 @@
+module SHIFT #(parameter BITS=4)
+					(input [BITS-1:0] A,B,
+					input Shift_mode,
+					input Sign_b,Sign_a,
+					output [BITS-1:0] M,
+					output Over, Turn);
+				
+			
+		
+endmodule	

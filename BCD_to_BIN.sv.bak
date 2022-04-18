@@ -1,0 +1,10 @@
+module BCD_to_BIN #(parameter BITS=16,DIGITS = 6)
+						(input[8*DIGITS-1:0]BCD,
+						 output [BITS-1:0] BIN);
+						 
+						 
+						 
+						 
+						 
+						 
+endmodule

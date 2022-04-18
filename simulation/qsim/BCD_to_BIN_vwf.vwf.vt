@@ -1,0 +1,191 @@
+// Copyright (C) 2017  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details.
+
+// *****************************************************************************
+// This file contains a Verilog test bench with test vectors .The test vectors  
+// are exported from a vector file in the Quartus Waveform Editor and apply to  
+// the top level entity of the current Quartus project .The user can use this   
+// testbench to simulate his design using a third-party simulation tool .       
+// *****************************************************************************
+// Generated on "03/23/2022 14:09:22"
+                                                                                
+// Verilog Test Bench (with test vectors) for design :                          BCD_to_BIN
+// 
+// Simulation tool : 3rd Party
+// 
+
+`timescale 1 ps/ 1 ps
+module BCD_to_BIN_vlg_vec_tst();
+// constants                                           
+// general purpose registers
+reg [23:0] BCD_IN;
+// wires                                               
+wire [15:0] BIN;
+
+// assign statements (if any)                          
+BCD_to_BIN i1 (
+// port map - connection between master ports and signals/registers   
+	.BCD_IN(BCD_IN),
+	.BIN(BIN)
+);
+initial 
+begin 
+#1000000 $finish;
+end 
+
+// BCD_IN[23]
+initial
+begin
+	BCD_IN[23] = 1'b0;
+end 
+
+// BCD_IN[22]
+initial
+begin
+	BCD_IN[22] = 1'b0;
+end 
+
+// BCD_IN[21]
+initial
+begin
+	BCD_IN[21] = 1'b0;
+end 
+
+// BCD_IN[20]
+initial
+begin
+	BCD_IN[20] = 1'b0;
+end 
+
+// BCD_IN[19]
+initial
+begin
+	BCD_IN[19] = 1'b0;
+end 
+
+// BCD_IN[18]
+initial
+begin
+	BCD_IN[18] = 1'b0;
+end 
+
+// BCD_IN[17]
+initial
+begin
+	BCD_IN[17] = 1'b0;
+end 
+
+// BCD_IN[16]
+initial
+begin
+	BCD_IN[16] = 1'b1;
+end 
+
+// BCD_IN[15]
+initial
+begin
+	BCD_IN[15] = 1'b1;
+end 
+
+// BCD_IN[14]
+initial
+begin
+	BCD_IN[14] = 1'b0;
+end 
+
+// BCD_IN[13]
+initial
+begin
+	BCD_IN[13] = 1'b0;
+end 
+
+// BCD_IN[12]
+initial
+begin
+	BCD_IN[12] = 1'b0;
+end 
+
+// BCD_IN[11]
+initial
+begin
+	BCD_IN[11] = 1'b0;
+end 
+
+// BCD_IN[10]
+initial
+begin
+	BCD_IN[10] = 1'b1;
+end 
+
+// BCD_IN[9]
+initial
+begin
+	BCD_IN[9] = 1'b1;
+end 
+
+// BCD_IN[8]
+initial
+begin
+	BCD_IN[8] = 1'b0;
+end 
+
+// BCD_IN[7]
+initial
+begin
+	BCD_IN[7] = 1'b0;
+end 
+
+// BCD_IN[6]
+initial
+begin
+	BCD_IN[6] = 1'b0;
+end 
+
+// BCD_IN[5]
+initial
+begin
+	BCD_IN[5] = 1'b0;
+end 
+
+// BCD_IN[4]
+initial
+begin
+	BCD_IN[4] = 1'b1;
+end 
+
+// BCD_IN[3]
+initial
+begin
+	BCD_IN[3] = 1'b0;
+end 
+
+// BCD_IN[2]
+initial
+begin
+	BCD_IN[2] = 1'b1;
+end 
+
+// BCD_IN[1]
+initial
+begin
+	BCD_IN[1] = 1'b1;
+end 
+
+// BCD_IN[0]
+initial
+begin
+	BCD_IN[0] = 1'b1;
+end 
+endmodule
+

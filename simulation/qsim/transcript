@@ -1,0 +1,39 @@
+# do CALCULATOR.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:07:25 on Apr 18,2022
+# vlog -work work CALCULATOR.vo 
+# -- Compiling module CALCULATOR
+# -- Compiling module hard_block
+# 
+# Top level modules:
+# 	CALCULATOR
+# End time: 10:07:26 on Apr 18,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:07:26 on Apr 18,2022
+# vlog -work work CALC_16bit_vwf.vwf.vt 
+# -- Compiling module CALCULATOR_vlg_vec_tst
+# 
+# Top level modules:
+# 	CALCULATOR_vlg_vec_tst
+# End time: 10:07:26 on Apr 18,2022, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -novopt -c -t 1ps -L fiftyfivenm_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver work.CALCULATOR_vlg_vec_tst 
+# Start time: 10:07:26 on Apr 18,2022
+# Loading work.CALCULATOR_vlg_vec_tst
+# Loading work.CALCULATOR
+# Loading work.hard_block
+# Loading altera_ver.dffeas
+# Loading altera_ver.PRIM_GDFF_LOW
+# ** Warning: (vsim-3017) CALCULATOR.vo(28324): [TFMPC] - Too few port connections. Expected 8, found 7.
+#    Time: 0 ps  Iteration: 0  Instance: /CALCULATOR_vlg_vec_tst/i1/\~QUARTUS_CREATED_ADC1~  File: nofile
+# ** Warning: (vsim-3722) CALCULATOR.vo(28324): [TFMPC] - Missing connection for port 'clk_dft'.
+# ** Warning: (vsim-3017) CALCULATOR.vo(28347): [TFMPC] - Too few port connections. Expected 8, found 7.
+#    Time: 0 ps  Iteration: 0  Instance: /CALCULATOR_vlg_vec_tst/i1/\~QUARTUS_CREATED_ADC2~  File: nofile
+# ** Warning: (vsim-3722) CALCULATOR.vo(28347): [TFMPC] - Missing connection for port 'clk_dft'.
+# after#26
+# ** Note: $finish    : CALC_16bit_vwf.vwf.vt(58)
+#    Time: 1 us  Iteration: 0  Instance: /CALCULATOR_vlg_vec_tst
+# End time: 10:07:27 on Apr 18,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 4

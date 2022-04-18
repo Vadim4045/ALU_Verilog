@@ -1,0 +1,17 @@
+module DIGIT_REG (input RST,KEY,SW,
+						output reg [3:0]NUM);
+
+initial NUM=4'h0;
+						
+always @(negedge RST or negedge KEY)
+
+if(RST) begin
+	NUM=4'h0;
+end else begin
+	if(SW) begin
+		if(NUM==4'd9) NUM=4'd0;
+		else NUM=NUM+1
+	end
+end						
+						
+endmodule

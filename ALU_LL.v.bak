@@ -1,0 +1,31 @@
+module ALU_LL #(parameter BITS=16)(input [BITS-1:0] A,B,input [1:0]Com,
+					 output [BITS-1:0] Res, DivMod,output Over);
+					 
+wire a_zero, b_zero, a_min, b_min,a_one, b_one;
+wire adder_over, mult_over, div_over;
+wire turn, turn_div, turn_mult,tmp;	
+wire	[BITS-1:0] a_plus, a_minus, b_plus,b_minus, a_map, b_map, b_adder, b_div;
+wire	[BITS-1:0] res_adder, res_mult, res_div, res_1, res_2;
+
+NUM_IN #(.BITS(BITS))(.IN(A), .Plus(a_plus), .Minus(a_minus), .Min(a_min), .Zero(a_zero), .Map(a_map));
+NUM_IN #(.BITS(BITS))(.IN(B), .Plus(b_plus), .Minus(b_minus), .Min(b_min), .Zero(b_zero), .Map(b_map));
+
+assign b_adder = Com[0]^B[BITS-1]? b_minus:b_plus;
+
+ADDER_LL_CLA #(.BITS(BITS))(.A(A), .B(b_adder), .S(res_adder), .Over(adder_over));
+
+MULTIPLAYER_LL #(.BITS(BITS))(.A(A), .B(b_plus), .a_map(a_map), .Sign_b(B[BITS-1]),
+					.Sign_a(A[BITS-1]), .M(res_mult), .Over(mult_over), .Turn(turn_mult)); 
+					
+DIVIDER_LL #(.BITS(BITS))(.A(a_plus), .B(b_minus), .Zero_b(b_zero), .Modul(DivMod), .b_map(b_map),
+				.Sign_b(B[BITS-1]), .Sign_a(A[BITS-1]), .D(res_div), .Over(div_over), .Turn(turn_div));
+			
+assign res_1 = Com[0]? res_div:res_mult;
+assign turn = (Com[0]&turn_div)|(~Com[0]&turn_mult);
+
+TURNER_LL #(.BITS(BITS)) (.IN(res_1), .Com(turn), .OUT(res_2));
+	
+assign Res = Com[1]? res_2:res_adder;
+assign Over = (a_min|b_min)|(~Com[1]&adder_over)|(~Com[0]&Com[1]&mult_over)|(Com[0]&Com[1]&div_over);
+	
+endmodule

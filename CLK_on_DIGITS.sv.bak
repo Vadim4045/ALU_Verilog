@@ -1,0 +1,12 @@
+module CLK_on_DIGITS #(parameter DIGITS=4)
+							(input CLK,
+							input [DIGITS-2:0]SW;
+							input [DIGITS-1:0][3:0]IN,
+							output [DIGITS-1:0][3:0]OUT);
+							
+genvar i;
+generate
+	for(i=0;i<DIGITS-1;i=i+1) begin: clk_loop
+		assign OUT[i] = SW[i]? IN[i]: CLK? IN[i]: 4'h12;
+							
+endmodule

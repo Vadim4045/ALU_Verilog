@@ -1,0 +1,14 @@
+module MUX_OUT #(parameter BITS = 16)
+						(input [BITS-1:0] A,B,RES,MOD,
+						 input [1:0]SW,
+						 output reg [BITS-1:0] TO_BCD);
+						 
+	case (SW)
+		2'b00: assign TO_BCD = A;
+		2'b01: assign TO_BCD = B;
+		2'b10: assign TO_BCD = RES;
+		2'b11: assign TO_BCD = MOD;
+	endcase
+						 
+endmodule
+						 

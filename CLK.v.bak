@@ -1,0 +1,17 @@
+module CLK #(parameter PER_SEC = 1)
+				(input ADC_CLK,
+				output reg CLK);
+
+localparam tmp = 10000/2/PER_SEC;			
+
+reg [15:0]counter;
+initial counter=tmp;
+
+always @(posedge ADC_CLK)
+if(counter==16'h0)
+begin
+	counter <= tmp;
+	CLK <=~CLK;
+end else counter = counter-1;
+				
+endmodule
